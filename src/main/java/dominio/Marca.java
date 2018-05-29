@@ -1,0 +1,18 @@
+package dominio;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
+public class Marca {
+	
+	
+	private String nome;
+	private String pais;
+	
+	
+}

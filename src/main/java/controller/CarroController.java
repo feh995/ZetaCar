@@ -6,24 +6,25 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import dao.CarroDao;
-import dao.MarcaDao;
+import dao.override.CarroJpa;
+import dao.override.MarcaJpa;
 import dominio.Carro;
 import lombok.Getter;
 import lombok.Setter;
 
 @Resource
-public class CarroController {
+public class CarroController{
 
-	private MarcaDao marcaDao;
+	private MarcaJpa marcaJpa;
 
-	public CarroController(Result result, CarroDao carroDao, MarcaDao marcaDao) {
-		this.carroDao = carroDao;
+	private CarroJpa carroJpa;
+
+	public CarroController(Result result, CarroJpa carroJpa, MarcaJpa marcaJpa) {
+		this.carroJpa = carroJpa;
 		this.result = result;
-		this.marcaDao = marcaDao;
+		this.marcaJpa = marcaJpa;
 	}
 
-	private CarroDao carroDao = new CarroDao();
 
 	@Getter
 	@Setter
@@ -31,27 +32,25 @@ public class CarroController {
 
 	@Path("/form")
 	public void formulario() {
-		result.include("marcasList", marcaDao.pegaTodos());
+		result.include("marcasList", marcaJpa.pegaTodos());
 	}
 
 	@Post
 	public void adiciona(Carro carro) {
-		carroDao.salva(carro);
+		carroJpa.merge(carro);
 		result.include("menssagem", "Carro adicionado com sucesso!");
-		result.include("carroList", carroDao.pegaTodos());
+		result.include("carroList", carroJpa.pegaTodos());
 		result.redirectTo(CarroController.class).lista();
 	}
 
-	@Post
-	public void remove(Carro carro) {
-		carroDao.remove(carro);
-		result.include("menssagemReport", "Carro removido com sucesso!");
-		result.include("carroList", carroDao.pegaTodos());
-		result.redirectTo(CarroController.class).lista();
-	}
-
+	/*
+	 * @Post public void remove(Carro carro) { carroDao.remove(carro);
+	 * result.include("menssagemReport", "Carro removido com sucesso!");
+	 * result.include("carroList", carroDao.pegaTodos());
+	 * result.redirectTo(CarroController.class).lista(); }
+	 */
 	public List<Carro> lista() {
-		return carroDao.pegaTodos();
+		return carroJpa.pegaTodos();
 	}
 
 }

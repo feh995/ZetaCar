@@ -1,11 +1,9 @@
 package controller;
 
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import dao.MarcaDao;
-import dominio.Marca;
+import dao.override.MarcaJpa;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,10 +12,10 @@ public class MarcaController {
 
 	
 	
-	private MarcaDao marcaDao = new MarcaDao();
+	private MarcaJpa marcaJpa = new MarcaJpa();
 
-	public MarcaController(Result result, MarcaDao marcaDao) {
-		this.marcaDao = marcaDao;
+	public MarcaController(Result result, MarcaJpa marcaJpa) {
+		this.marcaJpa = marcaJpa;
 		this.result = result;
 	}
 	
@@ -36,7 +34,7 @@ public class MarcaController {
 
 	@Path("/index")
 	public void index() {
-		result.include("marcasList", marcaDao.pegaTodos());
+		result.include("marcasList", marcaJpa.pegaTodos());
 		result.include("teste", "Variavel do Controller");
 	}
 	
@@ -45,13 +43,15 @@ public class MarcaController {
 		
 	}
 	
+	
+	/*IMPLEMENTAR INCREMENTO DE MARCAS
 	@Post
 	public void adiciona(Marca marca) {
-		marcaDao.salva(marca);
-		/*result.include("menssagem", "Carro adicionado com sucesso!");*/
-		result.include("marcaList", marcaDao.pegaTodos());
+		marcaJpa.salva(marca);
+		result.include("menssagem", "Carro adicionado com sucesso!");
+		result.include("marcaList", marcaJpa.pegaTodos());
 		result.redirectTo(CarroController.class).formulario();
-	}
+	}*/
 	
 
 	

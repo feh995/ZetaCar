@@ -19,11 +19,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.16</version>
+			<version>1.16.20</version>
 		</dependency>
-
-		<!-- HIBERNATE Old <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
-			<version>4.3.6.Final</version> </dependency> -->
 
 		<!-- MySQL -->
 		<dependency>

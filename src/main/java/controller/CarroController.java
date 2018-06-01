@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Resource
-public class CarroController{
+public class CarroController {
 
 	private MarcaJpa marcaJpa;
 
@@ -25,7 +25,6 @@ public class CarroController{
 		this.marcaJpa = marcaJpa;
 	}
 
-
 	@Getter
 	@Setter
 	private Result result;
@@ -33,6 +32,10 @@ public class CarroController{
 	@Path("/form")
 	public void formulario() {
 		result.include("marcasList", marcaJpa.pegaTodos());
+	}
+	@Path("/buscar")
+	public void buscar() {
+		
 	}
 
 	@Post
@@ -43,12 +46,14 @@ public class CarroController{
 		result.redirectTo(CarroController.class).lista();
 	}
 
-	/*
-	 * @Post public void remove(Carro carro) { carroDao.remove(carro);
-	 * result.include("menssagemReport", "Carro removido com sucesso!");
-	 * result.include("carroList", carroDao.pegaTodos());
-	 * result.redirectTo(CarroController.class).lista(); }
-	 */
+	@Post
+	public void remove(Carro carro) {
+		carroJpa.remove(carro);
+		result.include("menssagemReport", "Carro removido com sucesso!");
+		result.include("carroList", carroJpa.pegaTodos());
+		result.redirectTo(CarroController.class).lista();
+	}
+
 	public List<Carro> lista() {
 		return carroJpa.pegaTodos();
 	}

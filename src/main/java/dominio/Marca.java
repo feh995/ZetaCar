@@ -13,15 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="marcas")
+@Table(name = "marcas")
 public class Marca {
-	
+
 	@Id
 	@Column(name = "nome")
 	private String nome;
-	
-	@Column(name="pais")
+
+	@Column(name = "pais")
 	private String pais;
-	
-	
+
 }

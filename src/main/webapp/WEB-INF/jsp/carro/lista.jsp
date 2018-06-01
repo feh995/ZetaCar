@@ -30,8 +30,6 @@
 		</h3>
 	</div>
 	<!-- ##################### Fim do Cabeçalho ##################### -->
-	
-	
 	<!-- ##################### Menu do Site  #####################  -->
 	<div class="container-fluid h-100">
 		<div class="row h-100">
@@ -47,15 +45,15 @@
 							<span><a class="nav-link pl-0" href="/zeta-car/form"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Cadastrar
 										Veículo</span></a></span>
-							<span><a class="nav-link pl-0" href="#"><i
+							<!-- <span><a class="nav-link pl-0" href="/zeta-car/buscar"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Consultar
-										Veículos</span></a></span>
+										Veículos</span></a></span> -->
 							<span><a class="nav-link pl-0" href="/zeta-car/carro/lista"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Listar
 										Veículos</span></a></span>
 						</ul></li>
 
-					<li class="nav-item"><a class="nav-link pl-0 text-nowrap"
+					<!-- <li class="nav-item"><a class="nav-link pl-0 text-nowrap"
 						data-toggle="collapse" href="#menuMarca"> <span
 							class="font-weight-bold">Marcas</span></a>
 						<ul id="menuMarca" class="collapse librePanelSubListGroupItem">
@@ -65,7 +63,7 @@
 							<span><a class="nav-link pl-0" href="#"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Listar
 										Marcas</span></a></span>
-						</ul></li>
+						</ul></li> -->
 
 				</ul>
 			</div>
@@ -122,11 +120,6 @@
 								<td>${carro.cor}</td>
 								<td>
 									<div class="col-md-3 pb-2">
-										<input type="hidden" value="${carro.marca}" name="carro.marca">
-										<input type="hidden" value="${carro.modelo}" name="carro.modelo">
-										<input type="hidden" value="${carro.preco}" name="carro.preco">
-										<input type="hidden" value="${carro.direcao}" name="carro.direcao">
-										<input type="hidden" value="${carro.cor}" name="carro.cor">
 										<input type="hidden" value="${carro.id}" name="carro.id">
 										<input type="submit" value="Remove" class="btn btn-danger" />
 									</div>

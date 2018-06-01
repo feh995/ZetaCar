@@ -13,30 +13,29 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
+@Data
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "id", sequenceName = "id_unico")
-@Table(name="carros")
+@Table(name = "carros")
 public class Carro {
-	
-	@Column(name="marca")
+
+	@Column(name = "marca")
 	private String marca;
-	
+
 	@Column(name = "modelo")
 	private String modelo;
-	
+
 	@Column(name = "preco")
 	private double preco;
-	
-	@Column(name="direcao")
-	private boolean direcao;
-	
-	@Column(name="cor")
-	private String  cor;
 
-	
+	@Column(name = "direcao")
+	private boolean direcao;
+
+	@Column(name = "cor")
+	private String cor;
+
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
 }

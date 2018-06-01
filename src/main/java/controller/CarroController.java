@@ -33,10 +33,7 @@ public class CarroController {
 	public void formulario() {
 		result.include("marcasList", marcaJpa.pegaTodos());
 	}
-	@Path("/buscar")
-	public void buscar() {
-		
-	}
+	
 
 	@Post
 	public void adiciona(Carro carro) {
@@ -54,8 +51,16 @@ public class CarroController {
 		result.redirectTo(CarroController.class).lista();
 	}
 
+	@Post
+	
+	public void busca(Carro carro) {
+		System.out.println("leitee!");
+		result.include(carroJpa.getById(carro.getId()));
+	}
+	
+	
 	public List<Carro> lista() {
 		return carroJpa.pegaTodos();
 	}
-
+	
 }

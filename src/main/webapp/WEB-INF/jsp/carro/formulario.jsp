@@ -126,7 +126,7 @@
 						<div class="col-md-3 pb-2">
 							<label>Direção Hidraulica</label>
 							<div>
-								<label> <input type="checkbox" autocomplete="off"
+								<label> <input type="checkbox"  autocomplete="off"
 									name="carro.direcao">
 								</label>
 							</div>

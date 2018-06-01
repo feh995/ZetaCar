@@ -36,4 +36,7 @@ public class CarroJpa extends Hibernate {
 		}
 	}
 
+	public Carro getById(int id) {
+		return entityManager.find(Carro.class, id);
+	}
 }

@@ -31,6 +31,8 @@
 	</div>
 	<!-- ##################### Fim do Cabeçalho ##################### -->
 	<!-- ##################### Menu do Site  #####################  -->
+
+
 	<div class="container-fluid h-100">
 		<div class="row h-100">
 			<aside class="col-12 col-md-2 p-0 bg-dark"> <nav
@@ -72,7 +74,41 @@
 
 
 			<main class="col bg-faded py-3" style="height:800px">
-			<div class="col-md-10 offset-md-1">
+			<table class="table table-striped table-dark">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Marca</th>
+						<th scope="col">Modelo</th>
+						<th scope="col">Preço</th>
+						<th scope="col">Dir. Hidraulica</th>
+						<th scope="col">Cor</th>
+						<th scope="col">Remover</th>
+						<th scope="col">Editar</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><c:out value="${carro.id}" escapeXml="true"/></td>
+					<td><c:out value="${carro.marca}" escapeXml="true"/></td>
+					<td><c:out value="${carro.modelo}" escapeXml="true"/></td>
+					<td><c:out value="${carro.preco}" escapeXml="true"/></td>
+				</tr>
+
+				</tbody>
+			</table>
+
+
+
+
+
+
+
+
+
+
+
+			<%--			<div class="col-md-10 offset-md-1">
 				<span class="anchor" id="formComplex"></span>
 				<form action="<c:url value="/carro/adiciona" />" method="post">
 					<div class="form-row mt-4">
@@ -104,8 +140,8 @@
 							<input type="submit" value="Adicionar" />
 						</div>
 				</form>
-			</div>
-			</main>
+			</div> --%> </main>
+
 		</div>
 	</div>
 	<script

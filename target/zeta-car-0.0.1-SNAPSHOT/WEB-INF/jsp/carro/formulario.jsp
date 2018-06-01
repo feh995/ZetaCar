@@ -23,7 +23,6 @@
 <title>Zeta Car</title>
 </head>
 <body>
-
 	<!-- ##################### Cabeçalho do Site ##################### -->
 	<div style="background: #23706f; color: #ddd; padding: 8px">
 		<h3>
@@ -31,10 +30,7 @@
 		</h3>
 	</div>
 	<!-- ##################### Fim do Cabeçalho ##################### -->
-
-
-
-<!-- ##################### Menu do Site  #####################  -->
+	<!-- ##################### Menu do Site  #####################  -->
 	<div class="container-fluid h-100">
 		<div class="row h-100">
 			<aside class="col-12 col-md-2 p-0 bg-dark"> <nav
@@ -49,15 +45,15 @@
 							<span><a class="nav-link pl-0" href="/zeta-car/form"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Cadastrar
 										Veículo</span></a></span>
-							<span><a class="nav-link pl-0" href="#"><i
+							<!-- <span><a class="nav-link pl-0" href="/zeta-car/buscar"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Consultar
-										Veículos</span></a></span>
+										Veículos</span></a></span> -->
 							<span><a class="nav-link pl-0" href="/zeta-car/carro/lista"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Listar
 										Veículos</span></a></span>
 						</ul></li>
 
-					<li class="nav-item"><a class="nav-link pl-0 text-nowrap"
+					<!-- <li class="nav-item"><a class="nav-link pl-0 text-nowrap"
 						data-toggle="collapse" href="#menuMarca"> <span
 							class="font-weight-bold">Marcas</span></a>
 						<ul id="menuMarca" class="collapse librePanelSubListGroupItem">
@@ -67,7 +63,7 @@
 							<span><a class="nav-link pl-0" href="#"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Listar
 										Marcas</span></a></span>
-						</ul></li>
+						</ul></li> -->
 
 				</ul>
 			</div>

@@ -73,74 +73,87 @@
 			<!-- ##################### Fim do menu #####################  -->
 
 
-			<main class="col bg-faded py-3" style="height:800px">
-			<table class="table table-striped table-dark">
-				<thead>
-					<tr>
-						<th scope="col">Id</th>
-						<th scope="col">Marca</th>
-						<th scope="col">Modelo</th>
-						<th scope="col">Preço</th>
-						<th scope="col">Dir. Hidraulica</th>
-						<th scope="col">Cor</th>
-						<th scope="col">Remover</th>
-						<th scope="col">Editar</th>
-					</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td><c:out value="${carro.id}" escapeXml="true"/></td>
-					<td><c:out value="${carro.marca}" escapeXml="true"/></td>
-					<td><c:out value="${carro.modelo}" escapeXml="true"/></td>
-					<td><c:out value="${carro.preco}" escapeXml="true"/></td>
-				</tr>
-
-				</tbody>
-			</table>
-
-
-
-
-
-
-
-
-
-
-
-			<%--			<div class="col-md-10 offset-md-1">
-				<span class="anchor" id="formComplex"></span>
-				<form action="<c:url value="/carro/adiciona" />" method="post">
-					<div class="form-row mt-4">
-						<div class="col-sm-5 pb-3">
-							<label>Marca</label> <select class="form-control"
-								value="carro.marca" name="carro.marca" type="text">
-								<c:forEach var="marca" items="${marcasList}">
-									<option>${marca.nome}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="col-sm-3 pb-3">
-							<label>Modelo</label> <input type="text" name="carro.modelo"
-								class="form-control" placeholder="${carro.modelo}"/>
-						</div>
-						<div class="col-sm-4 pb-3">
-							<label>Preço</label>
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text">$</span>
-								</div>
-								<input type="text" name="carro.preco" class="form-control" placeholder="${carro.preco}"/>
-							</div>
-						</div>
-
-
-						</div>
-						<div class="col-md-3 pb-2">
-							<input type="submit" value="Adicionar" />
-						</div>
-				</form>
-			</div> --%> </main>
+			<main class="col bg-faded py-0" style="height:800px;padding:0px">
+			<div>
+				<table class="table table-striped table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Marca</th>
+							<th scope="col">Modelo</th>
+							<th scope="col">Preço</th>
+							<th scope="col">Dir. Hidraulica</th>
+							<th scope="col">Cor</th>
+							<th scope="col">Salvar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<form action="<c:url value="/carro/adiciona" />" method="post">
+							<tr>
+								<td><input type="text" name="carro.id" class="form-control"
+									value="${carro.id}" readonly="true" /></td>
+								<td><div>
+										<select class="form-control" value="carro.marca"
+											name="carro.marca" type="text">
+											<c:forEach var="marca" items="${marcasList}">
+												<option ${marca.nome == carro.marca? 'selected="selected"':'' }>${marca.nome}</option>
+											</c:forEach>
+										</select>
+									</div></td>
+								<td><input type="text" name="carro.modelo"
+									class="form-control" value="${carro.modelo}" /></td>
+								<td>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">$</span>
+										</div>
+										<input type="text" name="carro.preco" class="form-control"
+											value="${carro.preco}" />
+									</div>
+								</td>
+								<td>
+									<div>
+										<label> <input type="checkbox" autocomplete="off"
+											name="carro.direcao"
+											${carro.direcao == 'true'? 'checked="checked"':''}>
+										</label>
+									</div>
+								</td>
+								<td>
+									<div class="form-group small">
+										<div class="form-check form-check-inline">
+											<label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="carro.cor"
+												value="Vermelho"
+												${carro.cor == 'Vermelho'? 'checked="checked"':'' }>
+												Vermelho
+											</label>
+										</div>
+										<div class="form-check form-check-inline disabled">
+											<label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="carro.cor"
+												value="Branco"
+												${carro.cor == 'Branco'? 'checked="checked"':'' }>
+												Branco
+											</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="carro.cor"
+												value="Preto"
+												${carro.cor == 'Preto'? 'checked="checked"':'' }>
+												Preto
+											</label>
+										</div>
+									</div>
+								</td>
+								<td><input type="submit" value="Salvar" /></td>
+							</tr>
+						</form>
+					</tbody>
+				</table>
+			</div>
+			</main>
 
 		</div>
 	</div>

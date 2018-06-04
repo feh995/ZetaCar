@@ -48,9 +48,9 @@
 							<!-- <span><a class="nav-link pl-0" href="/zeta-car/buscar"><i
 									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Consultar
 										Veículos</span></a></span> -->
-							<span><a class="nav-link pl-0" href="/zeta-car/carro/lista"><i
-									class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Listar
-										Veículos</span></a></span>
+							<span><a class="nav-link pl-0"
+								href="/zeta-car/carro/lista"><i class="fa fa-list fa-fw"></i>
+									<span class="d-none d-md-inline">Listar Veículos</span></a></span>
 						</ul></li>
 
 					<!-- <li class="nav-item"><a class="nav-link pl-0 text-nowrap"
@@ -126,11 +126,10 @@
 						<div class="col-md-3 pb-2">
 							<label>Direção Hidraulica</label>
 							<div>
-								<label> <input type="checkbox"  autocomplete="off"
+								<label> <input type="checkbox" autocomplete="off"
 									name="carro.direcao">
 								</label>
 							</div>
-
 						</div>
 						<div class="col-md-3 pb-2">
 							<input type="submit" value="Adicionar" />

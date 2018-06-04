@@ -6,8 +6,8 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import dao.override.CarroJpa;
-import dao.override.MarcaJpa;
+import dao.override.CarroDao;
+import dao.override.MarcaDao;
 import dominio.Carro;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,52 +15,50 @@ import lombok.Setter;
 @Resource
 public class CarroController {
 
-	private MarcaJpa marcaJpa;
+	private MarcaDao marcaDao;
 
-	private CarroJpa carroJpa;
+	private CarroDao carroDao;
 
-	public CarroController(Result result, CarroJpa carroJpa, MarcaJpa marcaJpa) {
-		this.carroJpa = carroJpa;
+	public CarroController(Result result, CarroDao carroDao, MarcaDao marcaDao) {
+		this.carroDao = carroDao;
 		this.result = result;
-		this.marcaJpa = marcaJpa;
+		this.marcaDao = marcaDao;
 	}
 
 	@Getter
+
 	@Setter
 	private Result result;
 
 	@Path("/form")
 	public void formulario() {
-		result.include("marcasList", marcaJpa.pegaTodos());
+		result.include("marcasList", marcaDao.pegaTodos());
 	}
-	
 
 	@Post
 	public void adiciona(Carro carro) {
-		carroJpa.merge(carro);
+		carroDao.merge(carro);
 		result.include("menssagem", "Carro adicionado com sucesso!");
-		result.include("carroList", carroJpa.pegaTodos());
+		result.include("carroList", carroDao.pegaTodos());
 		result.redirectTo(CarroController.class).lista();
 	}
 
 	@Post
 	public void remove(Carro carro) {
-		carroJpa.remove(carro);
+		carroDao.remove(carro);
 		result.include("menssagemReport", "Carro removido com sucesso!");
-		result.include("carroList", carroJpa.pegaTodos());
+		result.include("carroList", carroDao.pegaTodos());
 		result.redirectTo(CarroController.class).lista();
 	}
 
 	@Post
-	
 	public void busca(Carro carro) {
-		System.out.println("leitee!");
-		result.include(carroJpa.getById(carro.getId()));
+		result.include("marcasList", marcaDao.pegaTodos());
+		result.include(carroDao.getById(carro.getId()));
 	}
-	
-	
+
 	public List<Carro> lista() {
-		return carroJpa.pegaTodos();
+		return carroDao.pegaTodos();
 	}
-	
+
 }

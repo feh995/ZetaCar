@@ -7,7 +7,7 @@ import dao.Hibernate;
 import dominio.Carro;
 
 @Component
-public class CarroJpa extends Hibernate {
+public class CarroDao extends Hibernate {
 
 	public void merge(Carro carro) {
 		try {
@@ -39,4 +39,9 @@ public class CarroJpa extends Hibernate {
 	public Carro getById(int id) {
 		return entityManager.find(Carro.class, id);
 	}
+
+	public void salva(Carro element) {
+		merge(element);
+	}
+	
 }

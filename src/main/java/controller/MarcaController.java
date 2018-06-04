@@ -3,7 +3,7 @@ package controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import dao.override.MarcaJpa;
+import dao.override.MarcaDao;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,10 +12,10 @@ public class MarcaController {
 
 	
 	
-	private MarcaJpa marcaJpa = new MarcaJpa();
+	private MarcaDao marcaDao = new MarcaDao();
 
-	public MarcaController(Result result, MarcaJpa marcaJpa) {
-		this.marcaJpa = marcaJpa;
+	public MarcaController(Result result, MarcaDao marcaDao) {
+		this.marcaDao = marcaDao;
 		this.result = result;
 	}
 	
@@ -34,7 +34,7 @@ public class MarcaController {
 
 	@Path("/index")
 	public void index() {
-		result.include("marcasList", marcaJpa.pegaTodos());
+		result.include("marcasList", marcaDao.pegaTodos());
 		result.include("teste", "Variavel do Controller");
 	}
 	
